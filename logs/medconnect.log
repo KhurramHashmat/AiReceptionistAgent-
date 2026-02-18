@@ -1,0 +1,732 @@
+2026-01-25 19:32:22,504 - Agent_Orchestrator - INFO - --- Agent Session Started ---
+2026-01-25 19:38:25,115 - MCP_Setup - INFO - Configuration validated successfully
+2026-01-25 19:38:35,983 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-01-25 19:38:36,881 - Groq_Client - INFO - Groq connection test successful.
+2026-01-25 19:40:18,819 - FastAPI_Backend - INFO - Received request: Show me all cardiologists with more than 10 years experience.
+2026-01-25 19:40:18,828 - Agent_Orchestrator - INFO - Classified intent: read
+2026-01-25 19:40:19,679 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-01-25 19:40:20,281 - Agent_Orchestrator - INFO - Generated SQL: SELECT * FROM doctors WHERE specialty ILIKE '%cardiologist%' AND years_of_experience > 10;
+2026-01-25 19:40:21,001 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-01-25 19:40:23,180 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT * FROM doctors WHERE specialty ILIKE '%cardiologist%' AND years_of_experience > 10;
+2026-01-25 19:40:23,277 - Agent_Orchestrator - INFO - READ operation successful.
+2026-01-25 19:40:23,904 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-01-25 19:40:24,354 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: read
+2026-01-25 19:43:00,669 - FastAPI_Backend - INFO - Received request: Hello, I want schedule an appointment
+2026-01-25 19:43:00,671 - Agent_Orchestrator - INFO - Classified intent: write
+2026-01-25 19:43:01,664 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-01-25 19:43:02,483 - Agent_Orchestrator - INFO - Generated SQL: INSERT INTO booked_appointments (patient_name, doctor_id, reason, appointment_time) VALUES ('<patient_name>', <doctor_id>, '<reason>', '<appointment_time>');
+2026-01-25 19:43:03,337 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-01-25 19:43:06,958 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: INSERT INTO booked_appointments (patient_name, doctor_id, reason, appointment_time) VALUES ('<patient_name>', <doctor_id>, '<reason>', '<appointment_time>');
+2026-01-25 19:43:07,007 - Agent_Orchestrator - ERROR - Postgres Error: ERROR:  syntax error at or near "<"
+LINE 1: ...ason, appointment_time) VALUES ('<patient_name>', <doctor_id...
+                                                             ^
+
+2026-01-25 19:43:08,011 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-01-25 19:43:08,623 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: write
+2026-01-25 19:46:06,798 - FastAPI_Backend - INFO - Received request: Got it. If you want to respond to the agent in the chat interface to complete the booking, you should provide the details in a way that sounds natural to a medical assistant.  Here are a few ways you can phrase your response to the agent:  Option 1: Direct and Clear (Best for the LLM) "My full name is Bruce Wayne. I need to see a Cardiologist for heart pain. You can schedule it for any available time next month, perhaps February 14th at 2:30 PM.
+2026-01-25 19:46:06,800 - Agent_Orchestrator - INFO - Classified intent: write
+2026-01-25 19:46:07,533 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-01-25 19:46:21,692 - Agent_Orchestrator - INFO - Generated SQL: I can only help by generating SQL queries based on the provided database schema.
+2026-01-25 19:46:21,993 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-01-25 19:46:24,522 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: 
+2026-01-25 19:46:24,523 - Agent_Orchestrator - WARNING - Validation failed. Routing directly to response.
+2026-01-25 19:46:24,822 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-01-25 19:46:25,716 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: write
+2026-01-25 19:47:08,015 - FastAPI_Backend - INFO - Received request: Show me list of all the available doctors.
+2026-01-25 19:47:08,016 - Agent_Orchestrator - INFO - Classified intent: read
+2026-01-25 19:47:08,942 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-01-25 19:47:09,331 - Agent_Orchestrator - INFO - Generated SQL: SELECT * FROM doctors;
+2026-01-25 19:47:10,138 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-01-25 19:47:11,818 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT * FROM doctors;
+2026-01-25 19:47:11,868 - Agent_Orchestrator - INFO - READ operation successful.
+2026-01-25 19:47:12,803 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-01-25 19:47:13,876 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: read
+2026-01-25 19:47:46,214 - FastAPI_Backend - INFO - Received request: I want to book an appointment with this doctor: 
+2026-01-25 19:47:46,216 - Agent_Orchestrator - INFO - Classified intent: write
+2026-01-25 19:47:47,056 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-01-25 19:47:48,606 - Agent_Orchestrator - INFO - Generated SQL: INSERT INTO booked_appointments (patient_name, doctor_id, reason, appointment_time) VALUES ('<patient_name>', <doctor_id>, '<reason>', '<appointment_time>');
+2026-01-25 19:47:49,484 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-01-25 19:47:52,598 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: INSERT INTO booked_appointments (patient_name, doctor_id, reason, appointment_time) VALUES ('<patient_name>', <doctor_id>, '<reason>', '<appointment_time>');
+2026-01-25 19:47:52,647 - Agent_Orchestrator - ERROR - Postgres Error: ERROR:  syntax error at or near "<"
+LINE 1: ...ason, appointment_time) VALUES ('<patient_name>', <doctor_id...
+                                                             ^
+
+2026-01-25 19:47:53,594 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-01-25 19:47:54,172 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: write
+2026-01-25 19:48:29,628 - FastAPI_Backend - INFO - Received request: Hello, I want schedule an appointment with this doctor: | 3 | Dr. Fatima Khan | Dermatologist | 12 | 1,800.00 | reason is skin issue You can schedule it for any available time next month, perhaps February 14th at 2:30 PM.
+2026-01-25 19:48:29,629 - Agent_Orchestrator - INFO - Classified intent: write
+2026-01-25 19:48:30,561 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-01-25 19:48:31,826 - Agent_Orchestrator - INFO - Generated SQL: INSERT INTO booked_appointments (patient_name, doctor_id, reason, appointment_time) VALUES ('Patient', 3, 'skin issue', '2026-02-14 14:30:00');
+2026-01-25 19:48:32,698 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-01-25 19:48:35,007 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: INSERT INTO booked_appointments (patient_name, doctor_id, reason, appointment_time) VALUES ('Patient', 3, 'skin issue', '2026-02-14 14:30:00');
+2026-01-25 19:48:35,078 - Agent_Orchestrator - INFO - WRITE operation committed.
+2026-01-25 19:48:36,063 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-01-25 19:48:36,582 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: write
+2026-01-25 19:49:35,171 - FastAPI_Backend - INFO - Received request: Hello,My name is Bruce Wayne and I want schedule an appointment with this doctor: | 3 | Dr. Fatima Khan | Dermatologist | 12 | 1,800.00 | reason is skin issue You can schedule it for any available time next month, perhaps February 14th at 2:30 PM.
+2026-01-25 19:49:35,173 - Agent_Orchestrator - INFO - Classified intent: write
+2026-01-25 19:49:36,123 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-01-25 19:49:36,986 - Agent_Orchestrator - INFO - Generated SQL: INSERT INTO booked_appointments (patient_name, doctor_id, reason, appointment_time) VALUES ('Bruce Wayne', 3, 'skin issue', '2026-02-14 14:30:00');
+2026-01-25 19:49:37,840 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-01-25 19:49:42,523 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: INSERT INTO booked_appointments (patient_name, doctor_id, reason, appointment_time) VALUES ('Bruce Wayne', 3, 'skin issue', '2026-02-14 14:30:00');
+2026-01-25 19:49:42,580 - Agent_Orchestrator - INFO - WRITE operation committed.
+2026-01-25 19:49:43,558 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-01-25 19:49:44,021 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: write
+2026-01-29 18:03:48,102 - FastAPI_Backend - INFO - Received request: Hello, I want to find out all the available doctors?
+2026-01-29 18:03:48,110 - Agent_Orchestrator - INFO - Classified intent: read
+2026-01-29 18:03:50,434 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-01-29 18:03:51,491 - Agent_Orchestrator - INFO - Generated SQL: SELECT * FROM doctors;
+2026-01-29 18:03:53,236 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-01-29 18:03:53,695 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT * FROM doctors;
+2026-01-29 18:03:53,838 - Agent_Orchestrator - INFO - READ operation successful.
+2026-01-29 18:03:55,986 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-01-29 18:03:57,179 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: read
+2026-01-29 18:04:24,359 - FastAPI_Backend - INFO - Received request: I need the response in a sturctured way.
+2026-01-29 18:04:24,362 - Agent_Orchestrator - INFO - Classified intent: read
+2026-01-29 18:04:26,256 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-01-29 18:04:27,391 - Agent_Orchestrator - INFO - Generated SQL: SELECT * FROM doctors;
+2026-01-29 18:04:29,283 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-01-29 18:04:29,636 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT * FROM doctors;
+2026-01-29 18:04:29,715 - Agent_Orchestrator - INFO - READ operation successful.
+2026-01-29 18:04:31,613 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-01-29 18:04:32,817 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: read
+2026-01-29 18:05:23,887 - FastAPI_Backend - INFO - Received request: I am searching for the haemotologist
+2026-01-29 18:05:23,889 - Agent_Orchestrator - INFO - Classified intent: read
+2026-01-29 18:05:25,803 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-01-29 18:05:26,369 - Agent_Orchestrator - INFO - Generated SQL: SELECT * FROM doctors WHERE specialty ILIKE '%haemotologist%';
+2026-01-29 18:05:28,240 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-01-29 18:05:28,722 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT * FROM doctors WHERE specialty ILIKE '%haemotologist%';
+2026-01-29 18:05:28,798 - Agent_Orchestrator - INFO - READ operation successful.
+2026-01-29 18:05:30,677 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-01-29 18:05:31,386 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: read
+2026-01-29 18:05:59,776 - FastAPI_Backend - INFO - Received request: A patient is suffering from blood disorder which doctor is best suited?
+2026-01-29 18:05:59,779 - Agent_Orchestrator - INFO - Classified intent: read
+2026-01-29 18:06:01,682 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-01-29 18:06:02,720 - Agent_Orchestrator - INFO - Generated SQL: SELECT id, name, specialty, years_of_experience, consultation_fee FROM doctors WHERE specialty ILIKE '%blood%';
+2026-01-29 18:06:04,636 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-01-29 18:06:05,074 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT id, name, specialty, years_of_experience, consultation_fee FROM doctors WHERE specialty ILIKE '%blood%';
+2026-01-29 18:06:05,152 - Agent_Orchestrator - INFO - READ operation successful.
+2026-01-29 18:06:07,074 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-01-29 18:06:07,638 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: read
+2026-01-29 18:06:36,026 - FastAPI_Backend - INFO - Received request: But you don't have it. So, suggest me a doctor other than hematologist?
+2026-01-29 18:06:36,029 - Agent_Orchestrator - INFO - Classified intent: read
+2026-01-29 18:06:37,902 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-01-29 18:06:38,561 - Agent_Orchestrator - INFO - Generated SQL: SELECT * FROM doctors WHERE specialty NOT ILIKE '%hematologist%' ORDER BY random() LIMIT 1;
+2026-01-29 18:06:40,464 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-01-29 18:06:40,915 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT * FROM doctors WHERE specialty NOT ILIKE '%hematologist%' ORDER BY random() LIMIT 1;
+2026-01-29 18:06:40,998 - Agent_Orchestrator - INFO - READ operation successful.
+2026-01-29 18:06:42,901 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-01-29 18:06:43,485 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: read
+2026-01-29 18:07:35,117 - FastAPI_Backend - INFO - Received request: I want to book an appointment with this doctor. 
+2026-01-29 18:07:35,120 - Agent_Orchestrator - INFO - Classified intent: write
+2026-01-29 18:07:37,049 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-01-29 18:07:39,797 - Agent_Orchestrator - INFO - Generated SQL: INSERT INTO booked_appointments (patient_name, doctor_id, reason, appointment_time) VALUES ('[PATIENT_NAME]', [DOCTOR_ID], '[REASON]', '[APPOINTMENT_TIME]');
+2026-01-29 18:07:41,740 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-01-29 18:07:42,255 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: INSERT INTO booked_appointments (patient_name, doctor_id, reason, appointment_time) VALUES ('[PATIENT_NAME]', [DOCTOR_ID], '[REASON]', '[APPOINTMENT_TIME]');
+2026-01-29 18:07:42,351 - Agent_Orchestrator - ERROR - Postgres Error: ERROR:  syntax error at or near "["
+LINE 1: ...ason, appointment_time) VALUES ('[PATIENT_NAME]', [DOCTOR_ID...
+                                                             ^
+
+2026-01-29 18:07:44,204 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-01-29 18:07:44,918 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: write
+2026-01-29 18:09:14,848 - FastAPI_Backend - INFO - Received request: Patient's name is tony and he wants to book an appointment with doctor Mariam Siddique at 9pm Tomorrow.
+2026-01-29 18:09:14,850 - Agent_Orchestrator - INFO - Classified intent: write
+2026-01-29 18:09:16,776 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-01-29 18:09:18,102 - Agent_Orchestrator - INFO - Generated SQL: INSERT INTO booked_appointments (patient_name, doctor_id, reason, appointment_time) VALUES ('tony', (SELECT id FROM doctors WHERE name = 'Mariam Siddique'), 'General Consultation', (CURRENT_DATE + INTERVAL '1 day') + TIME '21:00');
+2026-01-29 18:09:20,037 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-01-29 18:09:21,173 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: INSERT INTO booked_appointments (patient_name, doctor_id, reason, appointment_time) VALUES ('tony', (SELECT id FROM doctors WHERE name = 'Mariam Siddique'), 'General Consultation', (CURRENT_DATE + INTERVAL '1 day') + INTERVAL '21:00');
+2026-01-29 18:09:21,270 - Agent_Orchestrator - ERROR - Postgres Error: ERROR:  null value in column "doctor_id" of relation "booked_appointments" violates not-null constraint
+DETAIL:  Failing row contains (9, tony, null, General Consultation, pending, 2026-01-29 05:09:21.256568, 2026-01-30 21:00:00).
+
+2026-01-29 18:09:23,126 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-01-29 18:09:23,852 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: write
+2026-02-01 00:11:27,127 - FastAPI_Backend - INFO - Received request: Hello
+2026-02-01 00:11:27,144 - Agent_Orchestrator - INFO - Classified intent: read
+2026-02-01 00:11:28,170 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-01 00:11:29,797 - Agent_Orchestrator - INFO - Generated SQL: SELECT * FROM doctors LIMIT 5;
+2026-02-01 00:11:30,633 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-01 00:11:31,256 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT * FROM doctors LIMIT 5;
+2026-02-01 00:11:31,344 - Agent_Orchestrator - INFO - READ operation successful.
+2026-02-01 00:11:32,500 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-01 00:11:33,352 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: read
+2026-02-01 00:11:53,975 - FastAPI_Backend - INFO - Received request: I want list of all doctors available
+2026-02-01 00:11:53,976 - Agent_Orchestrator - INFO - Classified intent: read
+2026-02-01 00:11:54,903 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-01 00:11:55,510 - Agent_Orchestrator - INFO - Generated SQL: SELECT * FROM doctors;
+2026-02-01 00:11:56,712 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-01 00:11:57,262 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT * FROM doctors;
+2026-02-01 00:11:57,308 - Agent_Orchestrator - INFO - READ operation successful.
+2026-02-01 00:11:58,307 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-01 00:11:59,525 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: read
+2026-02-01 00:12:22,364 - FastAPI_Backend - INFO - Received request: I want to schedule an appointment with Dr. Zainab Noor
+2026-02-01 00:12:22,366 - Agent_Orchestrator - INFO - Classified intent: write
+2026-02-01 00:12:23,314 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-01 00:12:24,442 - Agent_Orchestrator - INFO - Generated SQL: SELECT id FROM booked_appointments WHERE doctor_id = (SELECT id FROM doctors WHERE name ILIKE '%Zainab Noor%') AND appointment_time = '2026-02-01 10:00:00';
+2026-02-01 00:12:25,510 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-01 00:12:25,890 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT id FROM booked_appointments WHERE doctor_id = (SELECT id FROM doctors WHERE name ILIKE '%Zainab Noor%') AND appointment_time = '2026-02-01 10:00:00';
+2026-02-01 00:12:26,925 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-01 00:12:27,903 - Agent_Orchestrator - ERROR - Postgres Error: ERROR:  invalid input syntax for type timestamp: "<appointment_time>"
+LINE 1: ...rs WHERE name ILIKE '%Zainab Noor%'), '<reason>', '<appointm...
+                                                             ^
+
+2026-02-01 00:12:28,891 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-01 00:12:29,484 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: write
+2026-02-01 00:14:55,220 - FastAPI_Backend - INFO - Received request: Name is: Tony Stark, Reason is physical, Appointment I want is for tomorrow 9 am.
+2026-02-01 00:14:55,222 - Agent_Orchestrator - INFO - Classified intent: write
+2026-02-01 00:14:56,175 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-01 00:14:58,160 - Agent_Orchestrator - INFO - Generated SQL: SELECT id FROM booked_appointments WHERE appointment_time = '2026-02-01 09:00:00';
+2026-02-01 00:14:59,058 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-01 00:15:00,285 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT id FROM booked_appointments WHERE appointment_time = '2026-02-01 09:00:00';
+2026-02-01 00:15:01,293 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-01 00:15:03,504 - Agent_Orchestrator - ERROR - Postgres Error: ERROR:  null value in column "doctor_id" of relation "booked_appointments" violates not-null constraint
+DETAIL:  Failing row contains (10, Tony Stark, null, physical, pending, 2026-01-31 11:15:03.496731, 2026-02-01 09:00:00).
+
+2026-02-01 00:15:04,456 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-01 00:15:05,699 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: write
+2026-02-01 00:15:23,649 - FastAPI_Backend - INFO - Received request: Name is: Tony Stark, Reason is physical, Appointment I want is for tomorrow 9 am with doctor Zainab Noor.
+2026-02-01 00:15:23,650 - Agent_Orchestrator - INFO - Classified intent: write
+2026-02-01 00:15:24,628 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-01 00:15:25,839 - Agent_Orchestrator - INFO - Generated SQL: SELECT id FROM booked_appointments WHERE doctor_id = (SELECT id FROM doctors WHERE name ILIKE '%Zainab Noor%') AND appointment_time = '2026-02-01 09:00:00';
+2026-02-01 00:15:26,931 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-01 00:15:28,128 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT id FROM booked_appointments WHERE doctor_id = (SELECT id FROM doctors WHERE name ILIKE '%Zainab Noor%') AND appointment_time = '2026-02-01 09:00:00';
+2026-02-01 00:15:29,078 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-01 00:15:30,644 - Agent_Orchestrator - INFO - WRITE operation committed.
+2026-02-01 00:15:31,480 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-01 00:15:32,756 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: write
+2026-02-01 00:16:31,475 - FastAPI_Backend - INFO - Received request: I want to schedule another appointment with Dr. Zainab Noor, Reason is Emotional, Appointment I want is for tomorrow 9 am.
+2026-02-01 00:16:31,477 - Agent_Orchestrator - INFO - Classified intent: write
+2026-02-01 00:16:32,677 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-01 00:16:34,398 - Agent_Orchestrator - INFO - Generated SQL: SELECT id FROM booked_appointments WHERE doctor_id = (SELECT id FROM doctors WHERE name ILIKE '%Zainab Noor%') AND appointment_time = '2026-02-01 09:00:00';
+2026-02-01 00:16:35,272 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-01 00:16:37,053 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT id FROM booked_appointments WHERE doctor_id = (SELECT id FROM doctors WHERE name ILIKE '%Zainab Noor%') AND appointment_time = '2026-02-01 09:00:00';
+2026-02-01 00:16:37,856 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-01 00:16:39,506 - Agent_Orchestrator - INFO - WRITE operation committed.
+2026-02-01 00:16:40,592 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-01 00:16:41,520 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: write
+2026-02-04 18:47:16,192 - FastAPI_Backend - INFO - Received request: Hello
+2026-02-04 18:47:16,198 - Agent_Orchestrator - INFO - Classified intent: read
+2026-02-04 18:47:17,116 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-04 18:47:19,871 - Agent_Orchestrator - INFO - Generated SQL: SELECT * FROM doctors LIMIT 1;
+2026-02-04 18:47:20,459 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-04 18:47:21,322 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT * FROM doctors LIMIT 1;
+2026-02-04 18:47:21,442 - Agent_Orchestrator - INFO - READ operation successful.
+2026-02-04 18:47:22,008 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-04 18:47:25,424 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: read
+2026-02-04 18:48:03,221 - FastAPI_Backend - INFO - Received request: I am feeling pain in my heart. Do you have doctor available for check-up?
+2026-02-04 18:48:03,222 - Agent_Orchestrator - INFO - Classified intent: read
+2026-02-04 18:48:03,829 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-04 18:48:05,199 - Agent_Orchestrator - INFO - Generated SQL: SELECT id, name, specialty, years_of_experience, consultation_fee FROM doctors WHERE specialty ILIKE '%cardiology%';
+2026-02-04 18:48:05,959 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-04 18:48:06,736 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT id, name, specialty, years_of_experience, consultation_fee FROM doctors WHERE specialty ILIKE '%cardiology%';
+2026-02-04 18:48:06,778 - Agent_Orchestrator - INFO - READ operation successful.
+2026-02-04 18:48:07,327 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-04 18:48:09,587 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: read
+2026-02-04 18:48:53,451 - FastAPI_Backend - INFO - Received request: Do you have doctor who is a cardiologist?
+2026-02-04 18:48:53,453 - Agent_Orchestrator - INFO - Classified intent: read
+2026-02-04 18:48:54,127 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-04 18:48:55,384 - Agent_Orchestrator - INFO - Generated SQL: SELECT * FROM doctors WHERE specialty ILIKE '%cardiologist%';
+2026-02-04 18:48:56,191 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-04 18:48:57,026 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT * FROM doctors WHERE specialty ILIKE '%cardiologist%';
+2026-02-04 18:48:57,073 - Agent_Orchestrator - INFO - READ operation successful.
+2026-02-04 18:48:57,711 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-04 18:48:58,602 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: read
+2026-02-04 20:40:45,342 - FastAPI_Backend - INFO - Received request: I would like to book an appointment with Dr. Muhammad Ali. Reason is chest pain. For tomorrow morning at 9 am.
+2026-02-04 20:40:45,343 - Agent_Orchestrator - INFO - Classified intent: write
+2026-02-04 20:40:46,205 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-04 20:40:47,592 - Agent_Orchestrator - INFO - Generated SQL: SELECT id FROM booked_appointments WHERE doctor_id = (SELECT id FROM doctors WHERE name ILIKE '%Muhammad Ali%') AND appointment_time = '2026-02-05 09:00:00';
+2026-02-04 20:40:48,470 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-04 20:40:49,217 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT id FROM booked_appointments WHERE doctor_id = (SELECT id FROM doctors WHERE name ILIKE '%Muhammad Ali%') AND appointment_time = '2026-02-05 09:00:00';
+2026-02-04 20:40:49,292 - Agent_Orchestrator - INFO - READ operation successful.
+2026-02-04 20:40:50,086 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-04 20:40:52,035 - Agent_Orchestrator - INFO - WRITE operation committed.
+2026-02-04 20:40:52,961 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-04 20:40:53,870 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: write
+2026-02-04 20:41:18,195 - FastAPI_Backend - INFO - Received request: Full name is: Tony Stark.
+2026-02-04 20:41:18,196 - Agent_Orchestrator - INFO - Classified intent: read
+2026-02-04 20:41:19,119 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-04 20:41:25,249 - Agent_Orchestrator - INFO - Generated SQL: SELECT id FROM booked_appointments WHERE patient_name ILIKE '%Tony Stark%';
+2026-02-04 20:41:26,332 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-04 20:41:26,918 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT id FROM booked_appointments WHERE patient_name ILIKE '%Tony Stark%';
+2026-02-04 20:41:26,976 - Agent_Orchestrator - INFO - READ operation successful.
+2026-02-04 20:41:27,809 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-04 20:41:28,517 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: read
+2026-02-04 20:41:32,371 - FastAPI_Backend - INFO - Received request: Yes
+2026-02-04 20:41:32,372 - Agent_Orchestrator - INFO - Classified intent: read
+2026-02-04 20:41:33,146 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-04 20:41:35,511 - Agent_Orchestrator - INFO - Generated SQL: SELECT * FROM doctors;
+2026-02-04 20:41:36,684 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-04 20:41:37,163 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT * FROM doctors;
+2026-02-04 20:41:37,200 - Agent_Orchestrator - INFO - READ operation successful.
+2026-02-04 20:41:37,968 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-04 20:41:39,719 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: read
+2026-02-04 20:41:59,604 - FastAPI_Backend - INFO - Received request: I would like to book an appointment with Dr. Muhammad Ali. My name is Tony Stark. Reason is chest pain. For tomorrow morning at 9 am.
+2026-02-04 20:41:59,605 - Agent_Orchestrator - INFO - Classified intent: write
+2026-02-04 20:42:00,464 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-04 20:42:01,156 - Agent_Orchestrator - INFO - Generated SQL: SELECT id FROM booked_appointments WHERE doctor_id = (SELECT id FROM doctors WHERE name ILIKE '%Muhammad Ali%') AND appointment_time = '2026-02-05 09:00:00';
+2026-02-04 20:42:01,999 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-04 20:42:03,741 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT id FROM booked_appointments WHERE doctor_id = (SELECT id FROM doctors WHERE name ILIKE '%Muhammad Ali%') AND appointment_time = '2026-02-05 09:00:00';
+2026-02-04 20:42:03,783 - Agent_Orchestrator - INFO - READ operation successful.
+2026-02-04 20:42:03,784 - Agent_Orchestrator - WARNING - Conflict found at this time slot: [(13,)]
+2026-02-04 20:42:03,784 - Agent_Orchestrator - WARNING - Conflict detected. Routing to response.
+2026-02-04 20:42:04,569 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-04 20:42:05,262 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: write
+2026-02-04 20:42:19,638 - FastAPI_Backend - INFO - Received request: Sure, when is he available?
+2026-02-04 20:42:19,639 - Agent_Orchestrator - INFO - Classified intent: read
+2026-02-04 20:42:20,499 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-04 20:42:22,999 - Agent_Orchestrator - INFO - Generated SQL: SELECT appointment_time FROM booked_appointments WHERE doctor_id = (SELECT id FROM doctors WHERE name ILIKE '%<doctor_name>%');
+2026-02-04 20:42:23,796 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-04 20:42:25,137 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT appointment_time FROM booked_appointments WHERE doctor_id = (SELECT id FROM doctors WHERE name ILIKE '%<doctor_name>%');
+2026-02-04 20:42:25,202 - Agent_Orchestrator - INFO - READ operation successful.
+2026-02-04 20:42:26,018 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-04 20:42:26,630 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: read
+2026-02-04 20:43:31,809 - FastAPI_Backend - INFO - Received request: I am feeling pain in my chest does your clinic have any doctor who is a cardiologist?
+2026-02-04 20:43:31,811 - Agent_Orchestrator - INFO - Classified intent: read
+2026-02-04 20:43:32,579 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-04 20:43:33,227 - Agent_Orchestrator - INFO - Generated SQL: SELECT id, name, specialty, years_of_experience, consultation_fee FROM doctors WHERE specialty ILIKE '%cardiologist%';
+2026-02-04 20:43:33,971 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-04 20:43:34,753 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT id, name, specialty, years_of_experience, consultation_fee FROM doctors WHERE specialty ILIKE '%cardiologist%';
+2026-02-04 20:43:34,794 - Agent_Orchestrator - INFO - READ operation successful.
+2026-02-04 20:43:35,522 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-04 20:43:36,239 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: read
+2026-02-04 20:44:00,371 - FastAPI_Backend - INFO - Received request: I would like to book an appointment with Dr. Muhammad Ali.
+2026-02-04 20:44:00,372 - Agent_Orchestrator - INFO - Classified intent: write
+2026-02-04 20:44:01,224 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-04 20:44:02,363 - Agent_Orchestrator - INFO - Generated SQL: SELECT id FROM booked_appointments WHERE doctor_id = (SELECT id FROM doctors WHERE name ILIKE '%Muhammad Ali%');
+2026-02-04 20:44:03,194 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-04 20:44:03,644 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT id FROM booked_appointments WHERE doctor_id = (SELECT id FROM doctors WHERE name ILIKE '%Muhammad Ali%');
+2026-02-04 20:44:03,678 - Agent_Orchestrator - INFO - READ operation successful.
+2026-02-04 20:44:03,679 - Agent_Orchestrator - WARNING - Conflict found at this time slot: [(13,)]
+2026-02-04 20:44:03,680 - Agent_Orchestrator - WARNING - Conflict detected. Routing to response.
+2026-02-04 20:44:04,425 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-04 20:44:05,050 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: write
+2026-02-04 20:44:36,273 - FastAPI_Backend - INFO - Received request: When will Dr. Muhammad Ali will be available?
+2026-02-04 20:44:36,275 - Agent_Orchestrator - INFO - Classified intent: read
+2026-02-04 20:44:37,100 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-04 20:44:38,930 - Agent_Orchestrator - INFO - Generated SQL: SELECT appointment_time FROM booked_appointments WHERE doctor_id = (SELECT id FROM doctors WHERE name ILIKE '%Muhammad Ali%');
+2026-02-04 20:44:39,770 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-04 20:44:40,419 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT appointment_time FROM booked_appointments WHERE doctor_id = (SELECT id FROM doctors WHERE name ILIKE '%Muhammad Ali%');
+2026-02-04 20:44:40,471 - Agent_Orchestrator - INFO - READ operation successful.
+2026-02-04 20:44:41,303 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-04 20:44:41,899 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: read
+2026-02-04 20:45:22,398 - FastAPI_Backend - INFO - Received request: Hello
+2026-02-04 20:45:22,401 - Agent_Orchestrator - INFO - Classified intent: read
+2026-02-04 20:45:23,502 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-04 20:45:25,182 - Agent_Orchestrator - INFO - Generated SQL: SELECT * FROM doctors LIMIT 5;
+2026-02-04 20:45:25,940 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-04 20:45:26,317 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT * FROM doctors LIMIT 5;
+2026-02-04 20:45:26,365 - Agent_Orchestrator - INFO - READ operation successful.
+2026-02-04 20:45:27,096 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-04 20:45:27,450 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: read
+2026-02-04 20:46:14,783 - FastAPI_Backend - INFO - Received request: I am feeling pain in my chest. So, I would like to book an appointment with the doctor. Can you provide me the list of doctors available?
+2026-02-04 20:46:14,785 - Agent_Orchestrator - INFO - Classified intent: write
+2026-02-04 20:46:15,845 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-04 20:46:16,930 - Agent_Orchestrator - INFO - Generated SQL: SELECT id, name, specialty, years_of_experience, consultation_fee FROM doctors;
+2026-02-04 20:46:17,893 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-04 20:46:18,205 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT id, name, specialty, years_of_experience, consultation_fee FROM doctors;
+2026-02-04 20:46:18,253 - Agent_Orchestrator - INFO - READ operation successful.
+2026-02-04 20:46:18,254 - Agent_Orchestrator - WARNING - Conflict found at this time slot: [(1, 'Dr. Sarah Ahmed', 'cardiologist', 15, Decimal('2500.00')), (2, 'Dr. Muhammad Ali', 'cardiologist', 8, Decimal('2000.00')), (3, 'Dr. Fatima Khan', 'dermatologist', 12, Decimal('1800.00')), (4, 'Dr. Hassan Raza', 'pediatrician', 10, Decimal('1500.00')), (5, 'Dr. Ayesha Malik', 'orthopedic', 20, Decimal('3000.00')), (6, 'Dr. Imran Sheikh', 'neurologist', 18, Decimal('2800.00')), (7, 'Dr. Zainab Noor', 'pediatrician', 5, Decimal('1200.00')), (8, 'Dr. Omar Farooq', 'dermatologist', 7, Decimal('1600.00')), (9, 'Dr. Mariam Siddiqui', 'general physician', 14, Decimal('1000.00')), (10, 'Dr. Bilal Anwar', 'orthopedic', 9, Decimal('2200.00'))]
+2026-02-04 20:46:18,255 - Agent_Orchestrator - WARNING - Conflict detected. Routing to response.
+2026-02-04 20:46:19,083 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-04 20:46:22,015 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: write
+2026-02-04 20:55:03,282 - FastAPI_Backend - INFO - Received request: Hello
+2026-02-04 20:55:03,283 - Agent_Orchestrator - INFO - Classified intent: read
+2026-02-04 20:55:04,173 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-04 20:55:06,363 - Agent_Orchestrator - INFO - Generated SQL: SELECT * FROM doctors LIMIT 1;
+2026-02-04 20:55:07,070 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-04 20:55:07,902 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT * FROM doctors LIMIT 1;
+2026-02-04 20:55:07,948 - Agent_Orchestrator - INFO - READ operation successful.
+2026-02-04 20:55:08,682 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-04 20:55:09,146 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: read
+2026-02-04 20:55:46,173 - FastAPI_Backend - INFO - Received request: I am feeling pain in my chest and would like to schedule an appointment with the doctor. Can I see the list of available doctors?
+2026-02-04 20:55:46,175 - Agent_Orchestrator - INFO - Classified intent: write
+2026-02-04 20:55:46,929 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-04 20:55:47,705 - Agent_Orchestrator - INFO - Generated SQL: SELECT id, name, specialty, years_of_experience, consultation_fee FROM doctors;
+2026-02-04 20:55:48,390 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-04 20:55:48,940 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT id, name, specialty, years_of_experience, consultation_fee FROM doctors;
+2026-02-04 20:55:49,699 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-04 20:55:52,757 - Agent_Orchestrator - ERROR - Postgres Error: ERROR:  invalid input syntax for type timestamp: "[Appointment Timestamp]"
+LINE 2: ... WHERE name ILIKE '[Doctor Name]'), 'Chest pain', '[Appointm...
+                                                             ^
+
+2026-02-04 20:55:53,492 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-04 20:55:55,618 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: write
+2026-02-04 20:59:27,557 - FastAPI_Backend - INFO - Received request: Hello
+2026-02-04 20:59:27,559 - Agent_Orchestrator - INFO - Classified intent: read
+2026-02-04 20:59:28,482 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-04 20:59:29,456 - Agent_Orchestrator - INFO - Generated SQL: SELECT name, specialty FROM doctors;
+2026-02-04 20:59:30,232 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-04 20:59:30,568 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT name, specialty FROM doctors;
+2026-02-04 20:59:30,611 - Agent_Orchestrator - INFO - READ operation successful.
+2026-02-04 20:59:31,351 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-04 20:59:34,227 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: read
+2026-02-04 20:59:54,136 - FastAPI_Backend - INFO - Received request: Can you show me the list of all doctors available?
+2026-02-04 20:59:54,138 - Agent_Orchestrator - INFO - Classified intent: read
+2026-02-04 20:59:54,888 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-04 20:59:55,602 - Agent_Orchestrator - INFO - Generated SQL: SELECT name, specialty FROM doctors;
+2026-02-04 20:59:56,359 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-04 20:59:57,081 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT name, specialty FROM doctors;
+2026-02-04 20:59:57,126 - Agent_Orchestrator - INFO - READ operation successful.
+2026-02-04 20:59:57,978 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-04 20:59:59,060 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: read
+2026-02-04 21:00:36,733 - FastAPI_Backend - INFO - Received request: I want to book an appointment with Dr.Muhammad Ali.
+2026-02-04 21:00:36,735 - Agent_Orchestrator - INFO - Classified intent: write
+2026-02-04 21:00:37,657 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-04 21:00:39,502 - Agent_Orchestrator - INFO - Generated SQL: SELECT name, specialty FROM doctors;
+2026-02-04 21:00:40,586 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-04 21:00:41,054 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT name, specialty FROM doctors;
+2026-02-04 21:00:41,877 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-04 21:00:43,290 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-04 21:00:43,630 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: write
+2026-02-04 21:01:16,893 - FastAPI_Backend - INFO - Received request: Name is: Tony Stark and I would like to schedule the appointment tomorrow at 9am.
+2026-02-04 21:01:16,894 - Agent_Orchestrator - INFO - Classified intent: write
+2026-02-04 21:01:17,731 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-04 21:01:21,445 - Agent_Orchestrator - INFO - Generated SQL: SELECT id FROM booked_appointments WHERE doctor_id = (SELECT id FROM doctors WHERE name ILIKE '%Tony Stark%') AND appointment_time = '2026-02-05 09:00:00';
+2026-02-04 21:01:22,516 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-04 21:01:23,595 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT id FROM booked_appointments WHERE doctor_id = (SELECT id FROM doctors WHERE name ILIKE '%Tony Stark%') AND appointment_time = '2026-02-05 09:00:00';
+2026-02-04 21:01:23,639 - Agent_Orchestrator - INFO - READ operation successful.
+2026-02-04 21:01:24,429 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-04 21:01:26,480 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-04 21:01:27,064 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: write
+2026-02-04 21:01:55,592 - FastAPI_Backend - INFO - Received request: I would like to book an appointment with: Dr. Muhammad Ali – Cardiologist, Name is: Tony Stark and I would like to schedule the appointment tomorrow at 9am.
+2026-02-04 21:01:55,604 - Agent_Orchestrator - INFO - Classified intent: write
+2026-02-04 21:01:56,448 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-04 21:01:57,294 - Agent_Orchestrator - INFO - Generated SQL: SELECT id FROM booked_appointments WHERE doctor_id = (SELECT id FROM doctors WHERE name ILIKE '%Muhammad Ali%') AND appointment_time = '2026-02-05 09:00:00';
+2026-02-04 21:01:58,165 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-04 21:01:59,362 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT id FROM booked_appointments WHERE doctor_id = (SELECT id FROM doctors WHERE name ILIKE '%Muhammad Ali%') AND appointment_time = '2026-02-05 09:00:00';
+2026-02-04 21:01:59,522 - Agent_Orchestrator - INFO - READ operation successful.
+2026-02-04 21:01:59,523 - Agent_Orchestrator - WARNING - Conflict detected for booking/edit. Routing to response.
+2026-02-04 21:02:00,341 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-04 21:02:00,770 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: write
+2026-02-04 21:21:06,863 - FastAPI_Backend - INFO - Received request: Show me a list of all available doctors
+2026-02-04 21:21:06,866 - Agent_Orchestrator - INFO - Classified intent: read
+2026-02-04 21:21:08,033 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-04 21:21:09,602 - Agent_Orchestrator - INFO - Generated SQL: SELECT name, specialty FROM doctors;
+2026-02-04 21:21:10,545 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-04 21:21:11,415 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT name, specialty FROM doctors;
+2026-02-04 21:21:11,481 - Agent_Orchestrator - INFO - READ operation successful.
+2026-02-04 21:21:12,347 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-04 21:21:13,406 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: read
+2026-02-04 21:21:58,880 - FastAPI_Backend - INFO - Received request: Show me a list of all available doctors
+2026-02-04 21:21:58,882 - Agent_Orchestrator - INFO - Classified intent: read
+2026-02-04 21:22:00,007 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-04 21:22:00,870 - Agent_Orchestrator - INFO - Generated SQL: SELECT * FROM doctors;
+2026-02-04 21:22:01,966 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-04 21:22:02,567 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT * FROM doctors;
+2026-02-04 21:22:02,616 - Agent_Orchestrator - INFO - READ operation successful.
+2026-02-04 21:22:03,356 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-04 21:22:04,564 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: read
+2026-02-04 21:22:55,575 - FastAPI_Backend - INFO - Received request: Now, I want to book an appointment with D.r Muhammad Ali, reason is chest pain, patient's name is: Tony Stark, Time: Tomorrow 9am.
+2026-02-04 21:22:55,577 - Agent_Orchestrator - INFO - Classified intent: write
+2026-02-04 21:22:56,554 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-04 21:22:57,428 - Agent_Orchestrator - INFO - Generated SQL: SELECT id FROM booked_appointments WHERE doctor_id = (SELECT id FROM doctors WHERE name ILIKE '%Muhammad Ali%') AND appointment_time = '2026-02-05 09:00:00';
+2026-02-04 21:22:58,370 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-04 21:22:59,165 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT id FROM booked_appointments WHERE doctor_id = (SELECT id FROM doctors WHERE name ILIKE '%Muhammad Ali%') AND appointment_time = '2026-02-05 09:00:00';
+2026-02-04 21:22:59,215 - Agent_Orchestrator - INFO - READ operation successful.
+2026-02-04 21:22:59,217 - Agent_Orchestrator - WARNING - Conflict detected for booking/edit. Routing to response.
+2026-02-04 21:22:59,218 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: write
+2026-02-04 23:44:36,391 - FastAPI_Backend - INFO - Received request: Provide me the list of all doctors
+2026-02-04 23:44:36,394 - Agent_Orchestrator - INFO - Classified intent: read
+2026-02-04 23:44:37,517 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-04 23:44:38,162 - Agent_Orchestrator - INFO - Generated SQL: SELECT id, name, specialty, years_of_experience, consultation_fee FROM doctors;
+2026-02-04 23:44:39,197 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-04 23:44:39,405 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT id, name, specialty, years_of_experience, consultation_fee FROM doctors;
+2026-02-04 23:44:39,461 - Agent_Orchestrator - INFO - READ operation successful.
+2026-02-04 23:44:40,305 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-04 23:44:41,266 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: read
+2026-02-04 23:46:13,582 - FastAPI_Backend - INFO - Received request: I want to book an appointment with Dr. Muhammad Ali, Reason is chest pain, Patient Name is: Nico Robin, for tomorrow 9 am.
+2026-02-04 23:46:13,583 - Agent_Orchestrator - INFO - Classified intent: write
+2026-02-04 23:46:14,435 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-04 23:46:15,498 - Agent_Orchestrator - INFO - Generated SQL: SELECT id FROM booked_appointments WHERE doctor_id = (SELECT id FROM doctors WHERE name ILIKE '%Muhammad Ali%') AND appointment_time = '2026-02-05 09:00:00';
+2026-02-04 23:46:16,358 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-04 23:46:17,598 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT id FROM booked_appointments WHERE doctor_id = (SELECT id FROM doctors WHERE name ILIKE '%Muhammad Ali%') AND appointment_time = '2026-02-05 09:00:00';
+2026-02-04 23:46:17,600 - Agent_Orchestrator - WARNING - Security Block: Non-INSERT query in WRITE node: SELECT id FROM booked_appointments WHERE doctor_id = (SELECT id FROM doctors WHERE name ILIKE '%Muhammad Ali%') AND appointment_time = '2026-02-05 09:00:00';
+2026-02-04 23:46:18,388 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-04 23:46:19,608 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: write
+2026-02-04 23:54:03,986 - FastAPI_Backend - INFO - Received request: Provide me with a list of doctors
+2026-02-04 23:54:03,988 - Agent_Orchestrator - INFO - Classified intent: read
+2026-02-04 23:54:05,113 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-04 23:54:05,822 - Agent_Orchestrator - INFO - Generated SQL: SELECT id, name, specialty, years_of_experience, consultation_fee FROM doctors;
+2026-02-04 23:54:06,669 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-04 23:54:06,995 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT id, name, specialty, years_of_experience, consultation_fee FROM doctors;
+2026-02-04 23:54:07,052 - Agent_Orchestrator - INFO - READ operation successful.
+2026-02-04 23:54:07,768 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-04 23:54:08,687 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: read
+2026-02-04 23:54:26,179 - FastAPI_Backend - INFO - Received request: I want to book an appointment with 2 | Dr. Muhammad Ali | Cardiologist | 8 | 2,000.00
+2026-02-04 23:54:26,181 - Agent_Orchestrator - INFO - Classified intent: write
+2026-02-04 23:54:27,260 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-04 23:54:28,533 - Agent_Orchestrator - INFO - Generated SQL: SELECT id FROM booked_appointments WHERE doctor_id = (SELECT id FROM doctors WHERE name ILIKE '%Muhammad Ali%') AND appointment_time = '2026-02-04 09:00:00';
+2026-02-04 23:54:29,362 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-04 23:54:30,027 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT id FROM booked_appointments WHERE doctor_id = (SELECT id FROM doctors WHERE name ILIKE '%Muhammad Ali%') AND appointment_time = '2026-02-04 09:00:00';
+2026-02-04 23:54:30,073 - Agent_Orchestrator - INFO - READ operation successful.
+2026-02-04 23:54:30,073 - Agent_Orchestrator - INFO - Availability check result: []
+2026-02-04 23:54:30,886 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-04 23:54:32,477 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-04 23:54:32,903 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: write
+2026-02-04 23:54:49,144 - FastAPI_Backend - INFO - Received request: Tomorrow 10am
+2026-02-04 23:54:49,145 - Agent_Orchestrator - INFO - Classified intent: read
+2026-02-04 23:54:49,869 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-04 23:54:52,215 - Agent_Orchestrator - INFO - Generated SQL: SELECT id FROM booked_appointments WHERE doctor_id = (SELECT id FROM doctors WHERE name ILIKE '%<doctor_name>%') AND appointment_time = '2026-02-05 10:00:00';
+2026-02-04 23:54:52,999 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-04 23:54:54,055 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT id FROM booked_appointments WHERE doctor_id = (SELECT id FROM doctors WHERE name ILIKE '%<doctor_name>%') AND appointment_time = '2026-02-05 10:00:00';
+2026-02-04 23:54:54,102 - Agent_Orchestrator - INFO - READ operation successful.
+2026-02-04 23:54:54,872 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-04 23:54:55,822 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: read
+2026-02-04 23:55:25,324 - FastAPI_Backend - INFO - Received request: I want to book an appointment with 2 | Dr. Muhammad Ali | Cardiologist | 8 | 2,000.00
+2026-02-04 23:55:25,326 - Agent_Orchestrator - INFO - Classified intent: write
+2026-02-04 23:55:26,069 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-04 23:55:27,561 - Agent_Orchestrator - INFO - Generated SQL: SELECT id FROM booked_appointments WHERE doctor_id = (SELECT id FROM doctors WHERE name ILIKE '%Muhammad Ali%') AND appointment_time = '<appointment_time>';
+2026-02-04 23:55:28,337 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-04 23:55:29,810 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT id FROM booked_appointments WHERE doctor_id = (SELECT id FROM doctors WHERE name ILIKE '%Muhammad Ali%') AND appointment_time = '<appointment_time>';
+2026-02-04 23:55:29,851 - Agent_Orchestrator - ERROR - Postgres Error: ERROR:  invalid input syntax for type timestamp: "<appointment_time>"
+LINE 1: ...me ILIKE '%Muhammad Ali%') AND appointment_time = '<appointm...
+                                                             ^
+
+2026-02-04 23:55:29,852 - Agent_Orchestrator - INFO - Availability check result: Postgres Error: ERROR:  invalid input syntax for type timestamp: "<appointment_time>"
+LINE 1: ...me ILIKE '%Muhammad Ali%') AND appointment_time = '<appointm...
+                                                             ^
+
+2026-02-04 23:55:29,853 - Agent_Orchestrator - WARNING - Conflict detected for booking/edit. Routing to response.
+2026-02-04 23:55:29,854 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: write
+2026-02-04 23:55:58,197 - FastAPI_Backend - INFO - Received request: I want to book an appointment with 2 | Dr. Muhammad Ali | Cardiologist | 8 | 2,000.00 | Day after tomorrow 10 am
+2026-02-04 23:55:58,199 - Agent_Orchestrator - INFO - Classified intent: write
+2026-02-04 23:55:58,975 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-04 23:55:59,592 - Agent_Orchestrator - INFO - Generated SQL: SELECT id FROM booked_appointments WHERE doctor_id = (SELECT id FROM doctors WHERE name ILIKE '%Muhammad Ali%') AND appointment_time = '2026-02-06 10:00:00';
+2026-02-04 23:56:00,410 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-04 23:56:00,760 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT id FROM booked_appointments WHERE doctor_id = (SELECT id FROM doctors WHERE name ILIKE '%Muhammad Ali%') AND appointment_time = '2026-02-06 10:00:00';
+2026-02-04 23:56:00,796 - Agent_Orchestrator - INFO - READ operation successful.
+2026-02-04 23:56:00,797 - Agent_Orchestrator - INFO - Availability check result: []
+2026-02-04 23:56:01,542 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-04 23:56:03,648 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-04 23:56:04,258 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: write
+2026-02-04 23:58:24,466 - FastAPI_Backend - INFO - Received request: Show me the list of all available doctors
+2026-02-04 23:58:24,469 - Agent_Orchestrator - INFO - Classified intent: read
+2026-02-04 23:58:25,718 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-04 23:58:26,371 - Agent_Orchestrator - INFO - Generated SQL: SELECT * FROM doctors;
+2026-02-04 23:58:27,232 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-04 23:58:27,659 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT * FROM doctors;
+2026-02-04 23:58:27,712 - Agent_Orchestrator - INFO - READ operation successful.
+2026-02-04 23:58:28,509 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-04 23:58:29,624 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: read
+2026-02-04 23:58:53,054 - FastAPI_Backend - INFO - Received request: I would like to book an appointment with Dr. Imran Sheikh.
+2026-02-04 23:58:53,056 - Agent_Orchestrator - INFO - Classified intent: write
+2026-02-04 23:58:53,880 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-04 23:58:54,465 - Agent_Orchestrator - INFO - Generated SQL: Error: Missing Data
+2026-02-04 23:58:55,248 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-04 23:58:56,381 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: Please provide the SQL query.
+2026-02-04 23:58:56,382 - Agent_Orchestrator - WARNING - Validation failed. Routing directly to response.
+2026-02-04 23:58:57,188 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-04 23:58:57,694 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: write
+2026-02-04 23:59:38,832 - FastAPI_Backend - INFO - Received request: Patient's Name is: Grayson Waller, Time will be for Tomorrow 11 am, Reason is headache.
+2026-02-04 23:59:38,833 - Agent_Orchestrator - INFO - Classified intent: read
+2026-02-04 23:59:39,558 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-04 23:59:40,297 - Agent_Orchestrator - INFO - Generated SQL: Error: Missing Data
+2026-02-04 23:59:41,057 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-04 23:59:41,510 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: 
+2026-02-04 23:59:41,513 - Agent_Orchestrator - WARNING - Validation failed. Routing directly to response.
+2026-02-04 23:59:42,332 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-04 23:59:42,868 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: read
+2026-02-04 23:59:50,738 - FastAPI_Backend - INFO - Received request: Yes
+2026-02-04 23:59:50,739 - Agent_Orchestrator - INFO - Classified intent: read
+2026-02-04 23:59:51,542 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-04 23:59:52,330 - Agent_Orchestrator - INFO - Generated SQL: SELECT 1;
+2026-02-04 23:59:53,149 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-04 23:59:53,351 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT 1;
+2026-02-04 23:59:53,399 - Agent_Orchestrator - INFO - READ operation successful.
+2026-02-04 23:59:54,134 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-04 23:59:54,908 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: read
+2026-02-05 00:01:12,064 - FastAPI_Backend - INFO - Received request: Did you book the appointment?
+2026-02-05 00:01:12,066 - Agent_Orchestrator - INFO - Classified intent: write
+2026-02-05 00:01:12,802 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-05 00:01:16,024 - Agent_Orchestrator - INFO - Generated SQL: Error: Missing Data
+2026-02-05 00:01:16,744 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-05 00:01:17,653 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: 
+2026-02-05 00:01:17,655 - Agent_Orchestrator - WARNING - Validation failed. Routing directly to response.
+2026-02-05 00:01:18,256 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-05 00:01:18,892 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: write
+2026-02-05 00:07:41,903 - FastAPI_Backend - INFO - Received request: Provide me with the list of all available doctors
+2026-02-05 00:07:41,906 - Agent_Orchestrator - INFO - Classified intent: read
+2026-02-05 00:07:42,943 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-05 00:07:43,552 - Agent_Orchestrator - INFO - Generated SQL: SELECT * FROM doctors;
+2026-02-05 00:07:44,375 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-05 00:07:44,752 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT * FROM doctors;
+2026-02-05 00:07:44,799 - Agent_Orchestrator - INFO - READ operation successful.
+2026-02-05 00:07:45,561 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-05 00:07:46,490 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: read
+2026-02-05 00:08:08,235 - FastAPI_Backend - INFO - Received request: I would like to book an appointment with  Dr. Zainab Noor
+2026-02-05 00:08:08,236 - Agent_Orchestrator - INFO - Classified intent: write
+2026-02-05 00:08:09,026 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-05 00:08:09,889 - Agent_Orchestrator - INFO - Generated SQL: Error: Missing Data
+2026-02-05 00:08:09,891 - Agent_Orchestrator - WARNING - Validation failed. Routing directly to response.
+2026-02-05 00:08:09,893 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: write
+2026-02-05 00:09:15,592 - FastAPI_Backend - INFO - Received request: Name: Grayson Waller, reason: Physical issue of a child, Time: tomorrow 1pm
+2026-02-05 00:09:15,593 - Agent_Orchestrator - INFO - Classified intent: write
+2026-02-05 00:09:16,374 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-05 00:09:16,840 - Agent_Orchestrator - INFO - Generated SQL: Error: Missing Data
+2026-02-05 00:09:16,842 - Agent_Orchestrator - WARNING - Validation failed. Routing directly to response.
+2026-02-05 00:09:16,843 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: write
+2026-02-05 00:09:27,128 - FastAPI_Backend - INFO - Received request: Dr. Zainab Noor
+2026-02-05 00:09:27,129 - Agent_Orchestrator - INFO - Classified intent: read
+2026-02-05 00:09:27,965 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-05 00:09:28,393 - Agent_Orchestrator - INFO - Generated SQL: SELECT * FROM doctors WHERE name ILIKE '%Zainab Noor%';
+2026-02-05 00:09:29,206 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-05 00:09:29,407 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT * FROM doctors WHERE name ILIKE '%Zainab Noor%';
+2026-02-05 00:09:29,446 - Agent_Orchestrator - INFO - READ operation successful.
+2026-02-05 00:09:30,228 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-05 00:09:30,688 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: read
+2026-02-05 00:09:42,128 - FastAPI_Backend - INFO - Received request: I would like to book an appointment with  Dr. Zainab Noor
+2026-02-05 00:09:42,129 - Agent_Orchestrator - INFO - Classified intent: write
+2026-02-05 00:09:42,954 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-05 00:09:43,399 - Agent_Orchestrator - INFO - Generated SQL: Error: Missing Data
+2026-02-05 00:09:43,401 - Agent_Orchestrator - WARNING - Validation failed. Routing directly to response.
+2026-02-05 00:09:43,402 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: write
+2026-02-05 00:10:07,324 - FastAPI_Backend - INFO - Received request: Name: Grayson Waller, reason: Physical issue of a child, Time: tomorrow 1pm, Doctor's Name: Dr. Zainab Noor.
+2026-02-05 00:10:07,325 - Agent_Orchestrator - INFO - Classified intent: write
+2026-02-05 00:10:08,093 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-05 00:10:08,540 - Agent_Orchestrator - INFO - Generated SQL: SELECT id FROM booked_appointments WHERE doctor_id = (SELECT id FROM doctors WHERE name ILIKE '%Zainab Noor%') AND appointment_time = '2026-02-05 13:00:00';
+2026-02-05 00:10:09,361 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-05 00:10:09,690 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT id FROM booked_appointments WHERE doctor_id = (SELECT id FROM doctors WHERE name ILIKE '%Zainab Noor%') AND appointment_time = '2026-02-05 13:00:00';
+2026-02-05 00:10:09,832 - Agent_Orchestrator - INFO - READ operation successful.
+2026-02-05 00:10:09,833 - Agent_Orchestrator - INFO - Availability check result: []
+2026-02-05 00:10:10,627 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-05 00:10:11,209 - Agent_Orchestrator - INFO - WRITE operation committed.
+2026-02-05 00:10:12,009 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-05 00:10:12,584 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: write
+2026-02-18 20:57:01,001 - FastAPI_Backend - INFO - Received request: Hello
+2026-02-18 20:57:01,015 - Agent_Orchestrator - INFO - Classified intent: read
+2026-02-18 20:57:02,059 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-18 20:57:02,925 - Agent_Orchestrator - INFO - Generated SQL: SELECT 'Hello' AS greeting;
+2026-02-18 20:57:03,681 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-18 20:57:03,915 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT 'Hello' AS greeting;
+2026-02-18 20:57:03,990 - Agent_Orchestrator - INFO - READ operation successful.
+2026-02-18 20:57:04,656 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-18 20:57:04,913 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: read
+2026-02-18 20:57:19,912 - FastAPI_Backend - INFO - Received request: I want you to provide me list of all available doctors
+2026-02-18 20:57:19,913 - Agent_Orchestrator - INFO - Classified intent: read
+2026-02-18 20:57:20,512 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-18 20:57:20,838 - Agent_Orchestrator - INFO - Generated SQL: SELECT id, name, specialty, years_of_experience, consultation_fee FROM doctors;
+2026-02-18 20:57:21,476 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-18 20:57:21,709 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT id, name, specialty, years_of_experience, consultation_fee FROM doctors;
+2026-02-18 20:57:21,755 - Agent_Orchestrator - INFO - READ operation successful.
+2026-02-18 20:57:22,288 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-18 20:57:23,189 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: read
+2026-02-18 20:57:44,435 - FastAPI_Backend - INFO - Received request: I want to book an appointment with Dr. Fatima Khan
+2026-02-18 20:57:44,437 - Agent_Orchestrator - INFO - Classified intent: write
+2026-02-18 20:57:45,134 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-18 20:57:46,006 - Agent_Orchestrator - INFO - Generated SQL: INSERT INTO booked_appointments (patient_name, doctor_id, reason, appointment_time) VALUES ('[patient_name]', (SELECT id FROM doctors WHERE name ILIKE '%Fatima Khan%' LIMIT 1), '[reason]', '[appointment_time]');
+2026-02-18 20:57:46,680 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-18 20:57:47,240 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: INSERT INTO booked_appointments (patient_name, doctor_id, reason, appointment_time) VALUES ('[patient_name]', (SELECT id FROM doctors WHERE name ILIKE '%Fatima Khan%' LIMIT 1), '[reason]', '[appointment_time]');
+2026-02-18 20:57:47,277 - Agent_Orchestrator - ERROR - Postgres Error: ERROR:  invalid input syntax for type timestamp: "[appointment_time]"
+LINE 1: ... name ILIKE '%Fatima Khan%' LIMIT 1), '[reason]', '[appointm...
+                                                             ^
+
+2026-02-18 20:57:47,829 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-18 20:57:48,207 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: write
+2026-02-18 20:58:39,240 - FastAPI_Backend - INFO - Received request: Patient Name: Clark Kent. 
+Date and Time: Tomorrow 12am. 
+Reason: Skin Issues.
+2026-02-18 20:58:39,241 - Agent_Orchestrator - INFO - Classified intent: read
+2026-02-18 20:58:39,815 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-18 20:58:41,053 - Agent_Orchestrator - INFO - Generated SQL: INSERT INTO booked_appointments (patient_name, doctor_id, reason, appointment_time) VALUES ('Clark Kent', (SELECT id FROM doctors WHERE specialty ILIKE '%dermatology%' LIMIT 1), 'Skin Issues', '2026-02-19 00:00:00');
+2026-02-18 20:58:41,739 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-18 20:58:42,294 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: INSERT INTO booked_appointments (patient_name, doctor_id, reason, appointment_time) VALUES ('Clark Kent', (SELECT id FROM doctors WHERE specialty ILIKE '%dermatology%' LIMIT 1), 'Skin Issues', '2026-02-19 00:00:00');
+2026-02-18 20:58:42,297 - Agent_Orchestrator - WARNING - Security Block: Non-SELECT query in READ node: INSERT INTO booked_appointments (patient_name, doctor_id, reason, appointment_time) VALUES ('Clark Kent', (SELECT id FROM doctors WHERE specialty ILIKE '%dermatology%' LIMIT 1), 'Skin Issues', '2026-02-19 00:00:00');
+2026-02-18 20:58:42,966 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-18 20:58:43,424 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: read
+2026-02-18 21:04:09,486 - FastAPI_Backend - INFO - Received request: Hello
+2026-02-18 21:04:09,489 - Agent_Orchestrator - INFO - Classified intent: read
+2026-02-18 21:04:10,265 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-18 21:04:11,224 - Agent_Orchestrator - INFO - Generated SQL: SELECT 'Hello' AS greeting;
+2026-02-18 21:04:11,766 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-18 21:04:11,978 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT 'Hello' AS greeting;
+2026-02-18 21:04:12,017 - Agent_Orchestrator - INFO - READ operation successful.
+2026-02-18 21:04:12,541 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-18 21:04:13,108 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: read
+2026-02-18 21:04:20,933 - FastAPI_Backend - INFO - Received request: Provide me list of all available doctors
+2026-02-18 21:04:20,934 - Agent_Orchestrator - INFO - Classified intent: read
+2026-02-18 21:04:21,502 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-18 21:04:21,841 - Agent_Orchestrator - INFO - Generated SQL: SELECT id, name, specialty, years_of_experience, consultation_fee FROM doctors;
+2026-02-18 21:04:22,534 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-18 21:04:22,768 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT id, name, specialty, years_of_experience, consultation_fee FROM doctors;
+2026-02-18 21:04:22,804 - Agent_Orchestrator - INFO - READ operation successful.
+2026-02-18 21:04:23,310 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-18 21:04:24,165 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: read
+2026-02-18 21:04:44,038 - FastAPI_Backend - INFO - Received request: I want to schedule an appointment with Dr. Fatima Khan
+2026-02-18 21:04:44,040 - Agent_Orchestrator - INFO - Classified intent: write
+2026-02-18 21:04:44,634 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-18 21:04:45,462 - Agent_Orchestrator - INFO - Generated SQL: INSERT INTO booked_appointments (patient_name, doctor_id, reason, appointment_time) VALUES ('<patient_name>', (SELECT id FROM doctors WHERE name ILIKE '%Fatima Khan%' LIMIT 1), '<reason>', '<appointment_time>');
+2026-02-18 21:04:46,117 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-18 21:04:46,615 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: INSERT INTO booked_appointments (patient_name, doctor_id, reason, appointment_time) VALUES ('<patient_name>', (SELECT id FROM doctors WHERE name ILIKE '%Fatima Khan%' LIMIT 1), '<reason>', '<appointment_time>');
+2026-02-18 21:04:46,650 - Agent_Orchestrator - ERROR - Postgres Error: ERROR:  invalid input syntax for type timestamp: "<appointment_time>"
+LINE 1: ... name ILIKE '%Fatima Khan%' LIMIT 1), '<reason>', '<appointm...
+                                                             ^
+
+2026-02-18 21:04:47,220 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-18 21:04:47,816 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: write
+2026-02-18 21:09:52,577 - FastAPI_Backend - INFO - Received request: Hello
+2026-02-18 21:09:52,578 - Agent_Orchestrator - INFO - Classified intent: read
+2026-02-18 21:09:53,381 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-18 21:09:54,303 - Agent_Orchestrator - INFO - Generated SQL: SELECT 'Hello' AS greeting;
+2026-02-18 21:09:54,897 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-18 21:09:55,111 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT 'Hello' AS greeting;
+2026-02-18 21:09:55,154 - Agent_Orchestrator - INFO - READ operation successful.
+2026-02-18 21:09:55,776 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-18 21:09:56,326 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: read
+2026-02-18 21:10:14,823 - FastAPI_Backend - INFO - Received request: I want you to provide me with the list of doctors available
+2026-02-18 21:10:14,825 - Agent_Orchestrator - INFO - Classified intent: read
+2026-02-18 21:10:15,428 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-18 21:10:15,763 - Agent_Orchestrator - INFO - Generated SQL: SELECT id, name, specialty, years_of_experience, consultation_fee FROM doctors;
+2026-02-18 21:10:16,409 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-18 21:10:16,633 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: SELECT id, name, specialty, years_of_experience, consultation_fee FROM doctors;
+2026-02-18 21:10:16,668 - Agent_Orchestrator - INFO - READ operation successful.
+2026-02-18 21:10:17,256 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-18 21:10:18,125 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: read
+2026-02-18 21:10:33,839 - FastAPI_Backend - INFO - Received request: I would like to schedule and appointment with Dr. Fatima Khan
+2026-02-18 21:10:33,841 - Agent_Orchestrator - INFO - Classified intent: write
+2026-02-18 21:10:34,514 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-18 21:10:35,704 - Agent_Orchestrator - INFO - Generated SQL: INSERT INTO booked_appointments (patient_name, doctor_id, reason, appointment_time) VALUES ('[patient_name]', (SELECT id FROM doctors WHERE name ILIKE '%Fatima Khan%' LIMIT 1), '[reason]', '[appointment_time]');
+2026-02-18 21:10:36,366 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-18 21:10:36,921 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: INSERT INTO booked_appointments (patient_name, doctor_id, reason, appointment_time) VALUES ('[patient_name]', (SELECT id FROM doctors WHERE name ILIKE '%Fatima Khan%' LIMIT 1), '[reason]', '[appointment_time]');
+2026-02-18 21:10:37,068 - Agent_Orchestrator - ERROR - Postgres Error: ERROR:  invalid input syntax for type timestamp: "[appointment_time]"
+LINE 1: ... name ILIKE '%Fatima Khan%' LIMIT 1), '[reason]', '[appointm...
+                                                             ^
+
+2026-02-18 21:10:37,614 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-18 21:10:39,408 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: write
+2026-02-18 21:11:18,016 - FastAPI_Backend - INFO - Received request: Full name: Clark Kent 
+Date and Time: Tomorrow 11am 
+Reason: Skin Allergy
+2026-02-18 21:11:18,017 - Agent_Orchestrator - INFO - Classified intent: write
+2026-02-18 21:11:18,642 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-18 21:11:21,464 - Agent_Orchestrator - INFO - Generated SQL: INSERT INTO booked_appointments (patient_name, doctor_id, reason, appointment_time) VALUES ('Clark Kent', (SELECT id FROM doctors WHERE specialty ILIKE '%dermatology%' LIMIT 1), 'Skin Allergy', (CURRENT_DATE + INTERVAL '1 day') + INTERVAL '11 hour');
+2026-02-18 21:11:22,166 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-18 21:11:22,950 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: INSERT INTO booked_appointments (patient_name, doctor_id, reason, appointment_time) VALUES ('Clark Kent', (SELECT id FROM doctors WHERE specialty ILIKE '%dermatology%' LIMIT 1), 'Skin Allergy', (CURRENT_DATE + INTERVAL '1 day') + INTERVAL '11 hour');
+2026-02-18 21:11:22,998 - Agent_Orchestrator - ERROR - Postgres Error: ERROR:  null value in column "doctor_id" of relation "booked_appointments" violates not-null constraint
+DETAIL:  Failing row contains (15, Clark Kent, null, Skin Allergy, pending, 2026-02-18 08:11:22.990624, 2026-02-19 11:00:00).
+
+2026-02-18 21:11:23,575 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-18 21:11:24,078 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: write
+2026-02-18 21:11:54,940 - FastAPI_Backend - INFO - Received request: Full name: Clark Kent, Date and Time: Tomorrow 11am, Reason: Skin Allergy, Dr. Fatima Khan
+2026-02-18 21:11:54,941 - Agent_Orchestrator - INFO - Classified intent: write
+2026-02-18 21:11:55,517 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-18 21:11:56,133 - Agent_Orchestrator - INFO - Generated SQL: INSERT INTO booked_appointments (patient_name, doctor_id, reason, appointment_time) VALUES ('Clark Kent', (SELECT id FROM doctors WHERE name ILIKE '%Fatima Khan%' LIMIT 1), 'Skin Allergy', '2026-02-19 11:00:00');
+2026-02-18 21:11:56,724 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-18 21:11:57,251 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: INSERT INTO booked_appointments (patient_name, doctor_id, reason, appointment_time) VALUES ('Clark Kent', (SELECT id FROM doctors WHERE name ILIKE '%Fatima Khan%' LIMIT 1), 'Skin Allergy', '2026-02-19 11:00:00');
+2026-02-18 21:11:57,298 - Agent_Orchestrator - INFO - WRITE operation committed. Rows affected: 1
+2026-02-18 21:11:57,845 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-18 21:11:58,110 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: write
+2026-02-18 21:12:27,055 - FastAPI_Backend - INFO - Received request: I would like schedule another appointment
+2026-02-18 21:12:27,056 - Agent_Orchestrator - INFO - Classified intent: write
+2026-02-18 21:12:27,057 - Agent_Orchestrator - INFO - Missing time info. Skipping SQL generation.
+2026-02-18 21:12:27,672 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-18 21:12:27,947 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: 
+2026-02-18 21:12:27,948 - Agent_Orchestrator - WARNING - Incomplete data or validation failed. Routing to response.
+2026-02-18 21:12:28,607 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-18 21:12:29,285 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: write
+2026-02-18 21:12:59,525 - FastAPI_Backend - INFO - Received request: Full name: Steve Rogers, Date and Time: Tomorrow 11am, Reason: Skin Issues, Dr. Fatima Khan
+2026-02-18 21:12:59,526 - Agent_Orchestrator - INFO - Classified intent: write
+2026-02-18 21:13:00,244 - Groq_Client - INFO - Groq LLM (Generator) initialized successfully using model: openai/gpt-oss-120b
+2026-02-18 21:13:00,779 - Agent_Orchestrator - INFO - Generated SQL: INSERT INTO booked_appointments (patient_name, doctor_id, reason, appointment_time) VALUES ('Steve Rogers', (SELECT id FROM doctors WHERE name ILIKE '%Fatima Khan%' LIMIT 1), 'Skin Issues', '2026-02-19 11:00:00');
+2026-02-18 21:13:01,497 - Groq_Client - INFO - SQL Validator LLM initialized successfully.
+2026-02-18 21:13:02,075 - Agent_Orchestrator - INFO - SQL Validated. Corrected SQL: INSERT INTO booked_appointments (patient_name, doctor_id, reason, appointment_time) VALUES ('Steve Rogers', (SELECT id FROM doctors WHERE name ILIKE '%Fatima Khan%' LIMIT 1), 'Skin Issues', '2026-02-19 11:00:00');
+2026-02-18 21:13:02,115 - Agent_Orchestrator - INFO - WRITE operation committed. Rows affected: 1
+2026-02-18 21:13:02,756 - Groq_Client - INFO - Conversational LLM initialized successfully.
+2026-02-18 21:13:03,012 - FastAPI_Backend - INFO - Agent successfully processed request. Intent: write
